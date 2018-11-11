@@ -1,0 +1,132 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,200);
+
+body {
+	background-image: url("/imgs/orig_331374.jpg");
+  
+  font-family: 'Roboto';
+  margin-top: 30mm;
+  text-align: center;
+   margin-bottom: 10;
+   font-style: italic;
+   
+   
+}
+
+.h2{
+	font-size: 50px;
+}
+
+
+.container {
+	
+  padding: 20px;
+  width: 200px;
+  background-color: #c0c0c0;
+  margin: 0 auto 10px;
+  border-radius: 20px;
+  
+}
+
+.container h2 {
+    font-weight: bold;
+    text-align: center;
+    margin-top: 3mm;
+    margin-bottom: 5;
+}
+
+.container button{
+  width: 100%;
+  margin-bottom: 20px;
+  position: static;
+  text-align: center;
+  
+}
+
+.container input[type=text], input[type=password] {
+	
+  height: 34px;
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 20px;
+  background: #fff;
+  border: 2px solid #d9d9d9;
+  border-top: 3px solid #c0c0c0;
+  padding: 5 15px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+ 
+}
+
+.login {
+  text-align: center;
+  font-size: 15px;
+  font-family: 'Arial';
+  font-weight: bold;
+  height: 40px;
+  padding: 0 8px;
+
+}
+
+.login-submit {
+  /* border: 1px solid #3079ed; */
+  border: 0px;
+  color: #fff;
+  text-shadow: 0 1px rgba(0,0,0,0.1); 
+  background-color: #0080ff;
+  /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
+}
+
+.login-card a {
+  color: #666;
+  font-weight: 400;
+  text-align: center;
+  display: inline-block;
+  opacity: 0.6;
+}
+
+.login-card a:hover {
+  opacity: 1;
+}
+
+.login-help {
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  margin-top: -10mm;
+}
+.candado{
+    margin-left: -1mm;
+    margin-bottom: -1mm;
+
+
+}/*Listas de Usuarios*/
+/*-------------------------------------------------------------*/
+
+  
+ .row.content {height: 1500px}
+    
+  
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+  
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 20px;
+    }
+    
+  
+    .col-sm-9 {
+        width: 100%;
+        margin-top: -40mm;
+    }
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;}
+    }
+

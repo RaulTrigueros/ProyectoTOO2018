@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1"/>
+<title>Gestion Sucursales</title>
+<!-- Bootstrap core CSS -->
+
+  <link rel="stylesheet" href="httpS://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  
+  <!-- Custom styles for this template -->
+  <link href="#" th:href="@{/css/login.css}" rel="stylesheet" />
+  <link href="#" th:href="@{/css/style2.css}" rel="stylesheet" />
+
+<style type="text/css" media="screen">
+
+  div #izquierda{
+  	float: left;
+  }
+  
+  
+  div #izquierda2{
+  	float: left;
+  }
+
+a {
+  width: 25%;
+  display: inline-block;
+  
+  /* no relevante */
+  color: white;
+ /* background: red;*/
+  text-decoration: none;
+  text-align: rigth;
+}
+ 
+ .container {
+	
+  padding: 10px;
+  width: 250px;
+  background-color: #F7F7F7;
+  margin: 0 auto 10px;
+  border-radius: 7px;
+  
+}
+  
+table {
+   width: 50%;
+   height: 300px;
+   border: 5px solid #000;
+   
+}
+th, td {
+   width: 25%;
+   text-align: left;
+   vertical-align: top;
+   border: 1px solid #000;
+   border-collapse: collapse;
+   padding: 0.3em;
+   caption-side: bottom;
+}
+caption {
+   padding: 0.3em;
+   color: #fff;
+    background: #CEF6E3;
+}
+th {
+   background: #d9d9d9;
+}
+h1 { color: #F8C471;
+ 	font-size: 50px; 
+ 	
+
+}
+</style>
+
+</head>
+<body>
+<h1>Gestión Sucursales</h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/usuarios/listusuarios"><button class="btn btn-lg btn-primary btn-block" type="submit">
+    	<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Ir a Gestión de Usuarios
+      </button>
+      </a>
+  
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar en el sitio</button>
+    </form>
+  </div>
+</nav>
+
+<div>
+	<div id="izquierda">
+	<div class="container">
+	<h3>Ingresar nueva</h3>
+	<form action = "#" th:action ="@{/sucursales/addsucursal}" th:object="${sucursal}" method="post">
+		<p>Id <input type="number" th:field="*{id}"></p>
+		<p>nombre <input type="text" th:field="*{nombre}" required></p>
+		<p>dirección <input type="text" th:field="*{direccion}" required></p>
+		<p> <input type="submit" value="Agregar/Actualizar"></p>
+	</form>
+	</div>
+		</div>
+	<div id="izquierda2">
+	<div class="container">
+	<h3>Eliminar por id</h3>
+	<form action = "#" th:action ="@{/sucursales/removesucursal}" th:object="${sucursal}" method="post">
+		<p>Id <input type="number" th:field="*{id}" required></p>
+		<p> <input type="submit" value="Eliminar"></p>
+	</form>
+	</div>
+	</div>
+
+
+
+
+
+	<table>
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>nombre</th>
+				<th>direccion</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each= "sucursal : ${sucursales}">
+				<th><span th:text = "${sucursal.id}">id</span></th>
+				<th><span th:text = "${sucursal.nombre}">nombre</span></th>
+				<th><span th:text = "${sucursal.direccion}">direccion</span></th>
+			</tr>
+		</tbody>
+	</table>
+	
+	
+
+
+<a href="#" th:href ="@{/login?logout}"> 
+      <button class="btn btn-lg btn-primary btn-block" type="submit">
+    	<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Cerrar Sesion 
+      </button>
+ </a>
+</body>
+</html>
