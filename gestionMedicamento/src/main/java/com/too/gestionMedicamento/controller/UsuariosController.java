@@ -40,7 +40,7 @@ public class UsuariosController {
 	public String removeUsuario(@ModelAttribute("usuario") Usuario usuario) {
 		
 		try {
-			usuarioService.removeUsuario(usuario.getId());
+			usuarioService.removeUsuario(usuario.getIdu());
 		}catch(EmptyResultDataAccessException e) {
 		}
 		
