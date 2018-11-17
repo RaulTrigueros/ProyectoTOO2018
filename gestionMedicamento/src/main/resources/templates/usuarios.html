@@ -95,9 +95,10 @@ h1 { color: #F1C40F;
 	<div class="container">
 	<h3>Ingresar nuevo</h3>
 		<form action = "#" th:action ="@{/usuarios/addusuario}" th:object="${usuario}" method="post">
-		<p>Id <input type="number" th:field="*{id}"></p>
+		<p>Id <input type="number" th:field="*{idu}"></p>
 		<p>nombre <input type="text" th:field="*{nombre}" required></p>
 		<p>clave<input type="text" th:field="*{clave}" required></p>
+		<p>rol<input type="text" th:field="*{rol}" required></p>
 		<p> <input type="submit" value="Agregar/Actualizar"></p>
 	</form>
 	</div>
@@ -106,7 +107,7 @@ h1 { color: #F1C40F;
 	<div class="container">
 		<h3>Eliminar por id</h3>
 	<form action = "#" th:action ="@{/usuarios/removeusuario}" th:object="${usuario}"  method="post">
-		<p>Id <input type="number" th:field="*{id}" required></p>
+		<p>Id <input type="number" th:field="*{idu}" required></p>
 		<p> <input type="submit" value="Eliminar Usuario"></p>
 	</form>
 	</div>
@@ -120,13 +121,15 @@ h1 { color: #F1C40F;
 				<th>Id</th>
 				<th>nombre</th>
 				<th>clave</th>
+				<th>rol</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr th:each= "usuario : ${usuarios}">
-				<th><span th:text = "${usuario.id}">id</span></th>
+				<th><span th:text = "${usuario.idu}">id</span></th>
 				<th><span th:text = "${usuario.nombre}">nombre</span></th>
 				<th><span th:text = "${usuario.clave}">clave</span></th>
+				<th><span th:text = "${usuario.rol}">rol</span></th>
 			</tr>
 		</tbody>
 	</table>

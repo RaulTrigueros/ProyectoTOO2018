@@ -8,6 +8,6 @@ public interface UsuariosService {
 
 	public abstract List<Usuario> listAllUsuarios();
 	public abstract Usuario addUsuario(Usuario usuario);
-	public abstract int removeUsuario(int id);
+	public abstract int removeUsuario(int idu);
 	public abstract Usuario updateUsuario(Usuario usuario); 
 }
