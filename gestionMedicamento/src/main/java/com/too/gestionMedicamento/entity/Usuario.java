@@ -15,8 +15,8 @@ public class Usuario {
 	
 	@Id
 	@GeneratedValue
-	@Column(name="id")
-	private int id;
+	@Column(name="idu")
+	private int idu;
 	
 	@Column(name="nombre")
 	@NotNull
@@ -26,32 +26,51 @@ public class Usuario {
 	@NotNull
 	private String clave;
 	
+	@Column(name="rol")
+	@NotNull
+	private String rol;
+	
 	public Usuario() {}
 	
-	public Usuario(int id, String nombre, String clave) {
+	public Usuario(int idu, @NotNull String nombre, @NotNull String clave, @NotNull String rol) {
 		super();
-		this.id = id;
+		this.idu = idu;
 		this.nombre = nombre;
 		this.clave = clave;
+		this.rol = rol;
 	}
-	
-	public int getId() {
-		return id;
+
+	public int getIdu() {
+		return idu;
 	}
-	public void setId(int id) {
-		this.id = id;
+
+	public void setIdu(int idu) {
+		this.idu = idu;
 	}
+
 	public String getNombre() {
 		return nombre;
 	}
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
 	public String getClave() {
 		return clave;
 	}
+
 	public void setClave(String clave) {
 		this.clave = clave;
 	}
+
+	public String getRol() {
+		return rol;
+	}
+
+	public void setRol(String rol) {
+		this.rol = rol;
+	}
+
 	
 }

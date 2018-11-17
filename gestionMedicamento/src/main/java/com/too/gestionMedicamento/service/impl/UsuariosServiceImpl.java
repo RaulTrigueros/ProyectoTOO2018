@@ -29,8 +29,8 @@ public class UsuariosServiceImpl implements UsuariosService{
 	}
 
 	@Override
-	public int removeUsuario(int id) {
-		usuarioJpaRepository.deleteById(id); ;
+	public int removeUsuario(int idu) {
+		usuarioJpaRepository.deleteById(idu); ;
 		return 0;
 	}
 
