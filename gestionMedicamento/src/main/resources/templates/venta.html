@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Realizar venta</title>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th>Fecha de venta</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="venta:$(ventas)">
+				<th><span th: text="$(venta.fechaVenta)">Fecha de venta</span></th>
+			</tr>
+		</tbody>
+	</table>
+	
+	<form action="@" th:action="{/ventas/agregarVenta}" th:object="$(venta)" method="post">
+		<p>Fecha:<input type="text" th:field="*{fechaVenta}"/></p>
+		<p><input type"submit" value="submit"/></p>
+	</form>
+</body>
+</html>
