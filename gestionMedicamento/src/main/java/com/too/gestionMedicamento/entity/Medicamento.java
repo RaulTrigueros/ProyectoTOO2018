@@ -3,6 +3,7 @@ package com.too.gestionMedicamento.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -23,9 +24,15 @@ public class Medicamento {
 	@NotNull
 	private Double precio;
 	
+	
+	@JoinColumn(name="idPresentacion")
+	@NotNull
 	@ManyToOne
 	private Presentacion presentacion;
 	
+	
+	@JoinColumn(name="idCategoria")
+	@NotNull
 	@ManyToOne
 	private Categoria categoria;
 	

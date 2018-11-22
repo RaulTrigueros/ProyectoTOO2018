@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1"/>
+<title>Gestionar Medicamentos</title>
+
+<!-- Bootstrap core CSS -->
+
+  <link rel="stylesheet" href="httpS://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  
+  <!-- Custom styles for this template -->
+  <link href="#" th:href="@{/css/login.css}" rel="stylesheet" />
+  <link href="#" th:href="@{/css/style2.css}" rel="stylesheet" />
+
+<style type="text/css" media="screen">
+
+  div #izquierda{
+  	float: left;
+  }
+  
+  
+  div #izquierda2{
+  	float: left;
+  }
+
+a {
+  width: 25%;
+  display: inline-block;
+  
+  /* no relevante */
+  color: white;
+ /* background: red;*/
+  text-decoration: none;
+  text-align: rigth;
+}
+ 
+ .container {
+	
+  padding: 10px;
+  width: 250px;
+  background-color: #F7F7F7;
+  margin: 0 auto 10px;
+  border-radius: 7px;
+  
+}
+  
+table {
+   width: 50%;
+   height: 300px;
+   border: 5px solid #000;
+   
+}
+th, td {
+   width: 25%;
+   text-align: left;
+   vertical-align: top;
+   border: 1px solid #000;
+   border-collapse: collapse;
+   padding: 0.3em;
+   caption-side: bottom;
+}
+caption {
+   padding: 0.3em;
+   color: #fff;
+    background: #CEF6E3;
+}
+th {
+   background: #d9d9d9;
+}
+h1 { color: #F8C471;
+ 	font-size: 50px; 
+ 	
+
+}
+</style>
+
+</head>
+<body>
+
+<div>
+	<div id="izquierda">
+	<div class="container">
+	<h3>Ingresar nuevo</h3>
+	<form action = "#" th:action ="@{/medicamentos/addmedicamento}" th:object="${medicamento}" method="post">
+		<p>Id medicamento<input type="text" th:field="*{codigoMedicamento}" required></p>
+		<p>nombre <input type="text" th:field="*{nombreMedicamento}" required></p>
+		<p>precio <input type="number" step="0.01" th:field="*{precio}" required></p>
+		<p>Presentacion<select th:field="${medicamento.presentacion.idPresentacion}" multiple="multiple" required=true >
+			<option th:each= "presentacion : ${presentaciones}" th:value="${presentacion.idPresentacion}" th:text= "${presentacion.nombrePresentacion}"></option>
+		</select></p>
+		<p>Categoria<select th:field="${medicamento.categoria.idCategoria}" multiple="multiple" required=true >
+			<option th:each= "categoria : ${categorias}" th:value="${categoria.idCategoria}" th:text= "${categoria.nombreCategoria}"></option>
+		</select></p>
+		<p> <input type="submit" value="Agregar/Actualizar"></p>
+	</form>
+	</div>
+		</div>
+</div>
+
+<div id="izquierda2">
+	<div class="container">
+	<h3>Eliminar por codigo</h3>
+	<form action = "#" th:action ="@{/medicamentos/removemedicamento}" th:object="${medicamento}" method="post">
+		<p>codigo <input type="text" th:field="*{codigoMedicamento}" required></p>
+		<p> <input type="submit" value="Eliminar"></p>
+	</form>
+	</div>
+	</div>
+
+
+	<table>
+		<thead>
+			<tr>
+				<th>Codigo</th>
+				<th>nombre</th>
+				<th>precio</th>
+				<th>presentacion</th>
+				<th>categoria</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each= "medicamento : ${medicamentos}">
+				<th><span th:text = "${medicamento.codigoMedicamento}">codigoMedicamento</span></th>
+				<th><span th:text = "${medicamento.nombreMedicamento}">nombreMedicamento</span></th>
+				<th><span th:text = "${medicamento.precio}">precio</span></th>
+				<th><span th:text = "${medicamento.presentacion.nombrePresentacion}">nombrePresentacion</span></th>
+				<th><span th:text = "${medicamento.categoria.nombreCategoria}">nombreCategoria</span></th>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+</html>
