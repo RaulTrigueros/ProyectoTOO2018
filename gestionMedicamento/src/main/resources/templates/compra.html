@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1"/>
+<title>Ingresar Compra</title>
+
+<!-- Bootstrap core CSS -->
+
+  <link rel="stylesheet" href="httpS://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  
+  <!-- Custom styles for this template -->
+  <link href="#" th:href="@{/css/login.css}" rel="stylesheet" />
+  <link href="#" th:href="@{/css/style2.css}" rel="stylesheet" />
+
+<style type="text/css" media="screen">
+
+  div #izquierda{
+  	float: left;
+  }
+  
+  
+  div #izquierda2{
+  	float: left;
+  }
+
+a {
+  width: 25%;
+  display: inline-block;
+  
+  /* no relevante */
+  color: white;
+ /* background: red;*/
+  text-decoration: none;
+  text-align: rigth;
+}
+ 
+ .container {
+	
+  padding: 10px;
+  width: 250px;
+  background-color: #F7F7F7;
+  margin: 0 auto 10px;
+  border-radius: 7px;
+  
+}
+  
+table {
+   width: 50%;
+   height: 300px;
+   border: 5px solid #000;
+   
+}
+th, td {
+   width: 25%;
+   text-align: left;
+   vertical-align: top;
+   border: 1px solid #000;
+   border-collapse: collapse;
+   padding: 0.3em;
+   caption-side: bottom;
+}
+caption {
+   padding: 0.3em;
+   color: #fff;
+    background: #CEF6E3;
+}
+th {
+   background: #d9d9d9;
+}
+h1 { color: #F8C471;
+ 	font-size: 50px; 
+
+form p  {
+  float: left;
+  width: 48%;
+} 	
+
+}
+</style>
+</head>
+<body>
+<h3>Ingresar compra</h3>
+<div class="container">
+	
+	<form action = "#" th:action ="@{/compras/addcompra}" th:object="${compra}" method="post">
+		<p>seleccione sucursal<select th:field="${compra.sucursal.id}" multiple="multiple" required=true >
+			<option th:each= "sucursal : ${sucursales}" th:value="${sucursal.id}" th:text= "${sucursal.nombre}"></option>
+		</select></p>
+		<p>Codigo compra<input type="text" th:field="*{codigoCompra}" required></p>
+		<p>fecha compra<input type="date" th:field="*{fechaCompra}" required></p>
+		<p>lote <input type="number" th:field="*{lote}" required min=1></p>
+		
+		<p>Elija Medicamento<select th:field="${compra.medicamento.codigoMedicamento}" multiple="multiple" required=true >
+			<option th:each= "medicamento : ${medicamentos}" th:value="${medicamento.codigoMedicamento}" th:text= "${medicamento.nombreMedicamento}"></option>
+		</select></p>
+		
+		<p>cantidad <input type="number" id="cantidad" th:field="*{cantidad}" required min=1></p>
+		<p>precio unitario<input type="number" id="precioUnitario" step="0.01" th:field="*{precioUni}" required min=0.01></p>
+		<p>subtotal <input type="number" id="subtotal" step="0.01" th:field="*{subtotal}" required readonly></p>
+		<p>iva <input type="number" id="iva" step="0.01" th:field="*{iva}" required readonly></p>
+		<p>total <input type="number" id="total" step="0.01" th:field="*{total}" required readonly></p>
+		<p> <input type="submit" value="Agregar Compra"></p>
+	</form>
+	</div>
+
+<script >
+	let cantidad = document.getElementById('cantidad');
+	let precioUnitario = document.getElementById('precioUnitario');
+	let subtotal = document.getElementById('subtotal');
+	let iva = document.getElementById('iva');
+	let total = document.getElementById('total');
+	
+	precioUnitario.addEventListener("keyup", calcularPrecio);
+	cantidad.addEventListener("keyup", calcularPrecio);
+	
+	function calcularPrecio(){
+		let cantidad1 = cantidad.value;
+		let precioUnitario1 = precioUnitario.value;
+		var subtotal1=cantidad1*precioUnitario1;
+		var iva1= subtotal1 * 0.13;
+		subtotal.value=subtotal1;
+		iva.value=iva1;
+		total.value=iva1+subtotal1;
+	}
+	
+</script> 
+</body>
+</html>
