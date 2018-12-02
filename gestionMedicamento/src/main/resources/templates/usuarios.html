@@ -8,10 +8,39 @@
   <link rel="stylesheet" href="httpS://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
   
   <!-- Custom styles for this template -->
-  <link href="#" th:href="@{/css/login.css}" rel="stylesheet" />
   <link href="#" th:href="@{/css/style2.css}" rel="stylesheet" />
 
 <style type="text/css" media="screen">
+body{ background-image: url("/imgs/orig_331374.jpg"); text-align: center; margin 0; background-color: #4642B8;font-family: Arial;}
+
+#menu{
+			background-color: #000;
+		}
+		
+#menu ul{
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		
+#menu ul li{
+			display: inline-block;
+		}
+		
+#menu ul li a{
+			color: white;
+			display: block;
+			padding: 20px 20px;
+			text-decoration: none;
+		}
+		
+#menu ul li a:hover{
+			background-color: #42B881;
+		}
+		
+.item-r{
+			float: right;
+		}
 
   div #izquierda{
   	float: left;
@@ -29,16 +58,6 @@
   
 }
 
-a {
-  width: 25%;
-  display: inline-block;
-  
-  /* no relevante */
-  color: white;
- /* background: red;*/
-  text-decoration: none;
-  text-align: rigth;
-}
 
 table {
    width: 50%;
@@ -74,22 +93,22 @@ h1 { color: #F1C40F;
 
 </head>
 <body>
+
+
+<div id="menu">
+		<ul>
+			<li><a href="/usuarios/listusuarios">Usuarios</a></li>
+			<li><a href="/sucursales/listsucursales">Sucursales</a></li>
+			<li><a href="/medicamentos/listmedicamentos">Medicamentos</a></li>
+			<li><a href="/compras/compra">Ingresar Compra</a></li>
+			<li><a href="/compra/compras">Listar Compras</a></li>
+			<li><a href="#">Venta</a></li>
+			<li><a href="#">Ventas por Vendedor</a></li>
+			<li><a href="#">Kardex</a></li>
+			<li class="item-r"><a href="#" th:href ="@{/login?logout}">Cerrar Sesion</a></li>
+		</ul>
+</div>
 <h1>Gestion Usuarios</h1>
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/sucursales/listsucursales"><button class="btn btn-lg btn-primary btn-block" type="submit">
-    	<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Ir a Gestion de Sucursales
-      </button></a>
-  
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar en el sitio</button>
-    </form>
-  </div>
-</nav>
-
 	<div>
 	<div id="izquierda">
 	<div class="container">
@@ -135,11 +154,6 @@ h1 { color: #F1C40F;
 	</table>
 	
 
-<a href="#" th:href ="@{/login?logout}"> 
-      <button class="btn btn-lg btn-primary btn-block" type="submit">
-    	<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Cerrar Sesion 
-      </button>
- </a>
 
 </body>
 </html>

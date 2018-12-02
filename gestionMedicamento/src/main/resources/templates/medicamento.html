@@ -9,10 +9,39 @@
   <link rel="stylesheet" href="httpS://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
   
   <!-- Custom styles for this template -->
-  <link href="#" th:href="@{/css/login.css}" rel="stylesheet" />
   <link href="#" th:href="@{/css/style2.css}" rel="stylesheet" />
 
 <style type="text/css" media="screen">
+body{ background-image: url("/imgs/orig_331374.jpg"); text-align: center; margin 0; background-color: #4642B8;font-family: Arial;}
+
+#menu{
+			background-color: #000;
+		}
+		
+#menu ul{
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		
+#menu ul li{
+			display: inline-block;
+		}
+		
+#menu ul li a{
+			color: white;
+			display: block;
+			padding: 20px 20px;
+			text-decoration: none;
+		}
+		
+#menu ul li a:hover{
+			background-color: #42B881;
+		}
+		
+.item-r{
+			float: right;
+		}
 
   div #izquierda{
   	float: left;
@@ -22,17 +51,6 @@
   div #izquierda2{
   	float: left;
   }
-
-a {
-  width: 25%;
-  display: inline-block;
-  
-  /* no relevante */
-  color: white;
- /* background: red;*/
-  text-decoration: none;
-  text-align: rigth;
-}
  
  .container {
 	
@@ -77,6 +95,21 @@ h1 { color: #F8C471;
 </head>
 <body>
 
+<div id="menu">
+		<ul>
+			<li><a href="/usuarios/listusuarios">Usuarios</a></li>
+			<li><a href="/sucursales/listsucursales">Sucursales</a></li>
+			<li><a href="/medicamentos/listmedicamentos">Medicamentos</a></li>
+			<li><a href="/compras/compra">Ingresar Compra</a></li>
+			<li><a href="/compra/compras">Listar Compras</a></li>
+			<li><a href="#">Venta</a></li>
+			<li><a href="#">Ventas por Vendedor</a></li>
+			<li><a href="#">Kardex</a></li>
+			<li class="item-r"><a href="#" th:href ="@{/login?logout}">Cerrar Sesion</a></li>
+		</ul>
+</div>
+
+<h1>Gestion Medicamentos</h1>
 <div>
 	<div id="izquierda">
 	<div class="container">
@@ -84,7 +117,7 @@ h1 { color: #F8C471;
 	<form action = "#" th:action ="@{/medicamentos/addmedicamento}" th:object="${medicamento}" method="post">
 		<p>Id medicamento<input type="text" th:field="*{codigoMedicamento}" required></p>
 		<p>nombre <input type="text" th:field="*{nombreMedicamento}" required></p>
-		<p>precio <input type="number" step="0.01" th:field="*{precio}" required></p>
+		<p>precio <input type="number" step="0.01" th:field="*{precio}" required min=0.01></p>
 		<p>Presentacion<select th:field="${medicamento.presentacion.idPresentacion}" multiple="multiple" required=true >
 			<option th:each= "presentacion : ${presentaciones}" th:value="${presentacion.idPresentacion}" th:text= "${presentacion.nombrePresentacion}"></option>
 		</select></p>
